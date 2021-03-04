@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %} Meek | Products {% endblock  %}
+{% block content %}
+{% include 'partials/_navbar.html' %}
+
+<div class="container">
+    <div class="row">
+    {% for product in object_list %}
+        <div class="col-md-4">
+            <a href="{% url 'product-detail' product.id%}" style="text-decoration:none">
+                <div class="card shadow" style="width:100%;" >
+                    <img class="card-img-top" src={{product.image_primary.url}} alt="{{product.style_name}}" style="width:100%" width="21rem" height="233rem">
+                    <div class="card-body">
+                        <h4 class="card-title">{{product.style_name}}</h4>
+                        <p class="card-text">Learn Swift 4</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    {% empty %}
+        No Product has been added yet
+    {% endfor %}
+    </div>
+</div>
+{% endblock content %}
+
+
+{% block javascript %}
+
+{% endblock %}
