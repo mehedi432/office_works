@@ -9,6 +9,7 @@ class Product(models.Model):
 
     merchant_name = models.ForeignKey(Merchant, on_delete=models.CASCADE)
     buyer_name = models.ForeignKey(Buyer, on_delete=models.CASCADE)
+    buyer_name_cleaned = models.CharField(max_length=55, help_text="Please, write the appropriate name of buyer")
     gender = models.ForeignKey("Gender", on_delete=models.CASCADE)
     category = models.ForeignKey("Category", on_delete=models.CASCADE)
 
@@ -31,8 +32,6 @@ class Product(models.Model):
     order_no = models.CharField(max_length=34)
     lc_or_pi = models.CharField(max_length=55)
     shipment_quantity = models.PositiveIntegerField()
-
-
 
     def __str__(self):
         return self.style_name

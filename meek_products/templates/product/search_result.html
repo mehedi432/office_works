@@ -1,9 +1,7 @@
 {% extends 'base.html' %}
-{% block title %} Meek | Products {% endblock  %}
-{% block content %}
-{% include 'partials/_navbar.html' %}
 
-<div class="container">
+{% block content %}
+    <div class="container">
     <div class="row">
     {% for product in object_list %}
         <div class="col-md-4 col-sm-4">
@@ -18,8 +16,12 @@
             </a>
         </div>
     {% empty %}
-        No Product has been added yet
+        <div class="jumbotron text-center">
+            No product found
+        </div>
     {% endfor %}
     </div>
 </div>
+
+
 {% endblock content %}

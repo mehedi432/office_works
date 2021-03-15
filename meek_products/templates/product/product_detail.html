@@ -1,1 +1,77 @@
-Working
+{% extends 'base.html' %}
+{% block title %} Meek | Products {% endblock  %}
+{% block content %}
+{% include 'partials/_navbar.html' %}
+
+<div class="container" style="">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <img class="card-img-top" src={{product.image_primary.url}} alt="{{product.style_name}}" style="width:100%" width="21rem" height="100%">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center mt-3">
+                    <h3>{{product.style_name}}</h3> <hr class="text-primary">
+                </div>
+                <div class="container">
+                    <p>Yarn: {{product.composition}}</p>
+                </div>
+                <div class="row container mt-3">
+                    <div class="col-sm-4 col-md-4">
+                        Gauge: {{product.gauge}}
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                        Weight: {{product.weight}}
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                        Time: {{product.time}}
+                    </div>
+                </div>
+                <div class="row container mt-3">
+                    <div class="col-sm-6">
+                        Order Date: {{product.date_order}}
+                    </div>
+                    <div class="col-sm-6">
+                        Shipment Date: {{product.shipment_date}}
+                    </div>
+                </div>
+
+                <div class="row container mt-3">
+                    <div class="col-sm-6">
+                        Buyer: {{product.buyer_name}}
+                    </div>
+                    <div class="col-sm-6">
+                        Season: {{product.season}}
+                    </div>
+                </div>
+                <div class="row container mt-3">
+                    <div class="col-sm-6">
+                        Order No: {{product.order_no}}
+                    </div>
+                    <div class="col-sm-6">
+                        LC or PI: {{product.lc_or_pi}}
+                    </div>
+                </div>
+
+                <div class="row container justify-content-center mt-3">
+                    <div class="col-sm-6">
+                        Shipment Qty: {{product.shipment_quantity}}
+                    </div>
+
+                    <div class="col-sm-6">
+                        Gender: {{product.gender}}
+                    </div>
+                </div>
+                <div class="row container justify-content-center mt-3">
+                    <div class="mb-3">
+                        {{product.merchant_name}}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
