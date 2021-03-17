@@ -6,15 +6,16 @@ from django.utils.html import format_html
 # Register your models here.
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    search_fields = ('style_name', 'description', 'composition', 'fob', 'moq', 'lc_or_pi', 'buyer_name')
-    list_display = ('id', 'style_name', 'description', 'composition', 'fob', 'moq', 'merchant_name', 'buyer_name',
-                    'date_shipment', 'shipment_quantity', 'lc_or_pi', 'image')
-    list_display_links = ('id', 'style_name')
+    search_fields = ('style_name', 'description', 'composition', 'lc_or_pi', 'buyer_name_cleaned',
+                     'merchant_name_cleaned', 'fob', 'moq')
+    list_display = ('style_name', 'description', 'composition', 'merchant_name_cleaned', 'buyer_name',
+                    'date_shipment', 'shipment_quantity', 'lc_or_pi', 'image', 'fob', 'moq')
+    list_display_links = ('style_name', 'description')
     list_filter = ()
     list_per_page = 21
 
     def image(self, obj):
-        return format_html('<img src="{0}" style="width: 45px; height:45px;" />'.format(obj.image_primary.url))
+        return format_html('<img src="{0}" style="width: 55px; height:55px;" />'.format(obj.image_primary.url))
 
 
 @admin.register(Category)

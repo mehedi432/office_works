@@ -11,14 +11,16 @@
                 <div class="card shadow" style="" >
                     <img class="card-img-top" src={{product.image_primary.url}} alt="{{product.style_name}}" style="width:100%" width="21rem" height="233rem">
                     <div class="card-body">
-                        <h4 class="card-title">{{product.style_name}}</h4>
-                        <p class="card-text">{{product.composition}}</p>
+                        <h4 class="card-title text-dark font-weight-bolder" style="font-size: 13pt; margin-top: -5pt; margin-bottom: -2pt">{{product.style_name}}</h4>
+                        <p class="card-text text-dark" style="font-size: 11pt; margin-bottom: -5pt;">{{product.composition}}</p>
                     </div>
                 </div>
             </a>
         </div>
     {% empty %}
-        No Product has been added yet
+        <div class="jumbotron bg-secondary text-white">
+            <h3>No Product has been added yet</h3>
+        </div>
     {% endfor %}
     </div>
 </div>

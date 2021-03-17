@@ -9,18 +9,29 @@
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'admin:index' %}">Admin<span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Category</a>
-      </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle disabled" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Category
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="{% url 'product:category-details' 1 %}">Cardigan</a>
+          <a class="dropdown-item" href="{% url 'product:category-details' 2 %}">Pullover</a>
+          <a class="dropdown-item" href="{% url 'product:category-details' 3%}">Vest</a>
+          <div class="bg-danger"><hr/></div>
+          <a class="dropdown-item" href="#">More</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTwo" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Gender
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownTwo">
+          <a class="dropdown-item" href="#">Man</a>
+          <a class="dropdown-item" href="#">Woman</a>
+          <a class="dropdown-item" href="#">Kids</a>
+
+          <div class="bg-danger"><hr/></div>
+          <a class="dropdown-item" href="#">More</a>
         </div>
       </li>
     </ul>

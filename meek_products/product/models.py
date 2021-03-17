@@ -9,13 +9,16 @@ class Product(models.Model):
 
     merchant_name = models.ForeignKey(Merchant, on_delete=models.CASCADE)
     buyer_name = models.ForeignKey(Buyer, on_delete=models.CASCADE)
-    buyer_name_cleaned = models.CharField(max_length=55, help_text="Please, write the appropriate name of buyer")
+    buyer_name_cleaned = models.CharField(max_length=55, help_text="Please, write the email of buyer")
+    merchant_name_cleaned = models.CharField(max_length=55, help_text="Please, write the email of associate merchant")
+
     gender = models.ForeignKey("Gender", on_delete=models.CASCADE)
     category = models.ForeignKey("Category", on_delete=models.CASCADE)
 
     image_primary = models.ImageField(default='default.jpg', upload_to="media/product")
     image_secondary = models.ImageField(default='default.jpg', upload_to="media/product", blank=True)
     image_extra = models.ImageField(default='default.jpg', upload_to="media/product", blank=True)
+    image_chart = models.ImageField(default='default.jpg', upload_to="media/chart", blank=True)
 
     description = models.CharField(max_length=34)
     composition = models.CharField(max_length=55)
@@ -46,6 +49,9 @@ class Gender(models.Model):
 
 class Category(models.Model):
     title = models.CharField(max_length=21)
+
+    class Meta:
+        verbose_name_plural = 'Categories'
 
     def __str__(self):
         return self.title

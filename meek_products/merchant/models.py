@@ -11,4 +11,4 @@ class Merchant(models.Model):
     email_address = models.EmailField()
 
     def __str__(self):
-        return self.email_address
+        return f"{self.first_name} {self.last_name}"
