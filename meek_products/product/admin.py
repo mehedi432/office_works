@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Category, Gender
+from .models import Product
 from django.utils.html import format_html
 
 
@@ -14,15 +14,6 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter = ()
     list_per_page = 21
 
-    def image(self, obj):
+    @staticmethod
+    def image(obj):
         return format_html('<img src="{0}" style="width: 55px; height:55px;" />'.format(obj.image_primary.url))
-
-
-@admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
-    pass
-
-
-@admin.register(Gender)
-class GenderAdmin(admin.ModelAdmin):
-    pass

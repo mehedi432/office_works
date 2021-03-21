@@ -15,12 +15,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '192.168.1.41',
-    '127.0.0.1'
+    '127.0.0.1',
+    '192.168.0.109',
 ]
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'buyer.apps.BuyerConfig',
     'merchant.apps.MerchantConfig',

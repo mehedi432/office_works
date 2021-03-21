@@ -1,6 +1,6 @@
-# from django.shortcuts import render
+from django.shortcuts import render
 from django.views.generic import ListView, DetailView
-from .models import Product, Category
+from .models import Product
 from django.db.models import Q
 
 
@@ -13,14 +13,49 @@ class ProductDetailView(DetailView):
     model = Product
 
 
-class CategoryListView(ListView):
-    model = Category
-    extra_context = Product.objects.all()
-    template_name = 'product/category_list.html'
+def category_list(request, pk):
+    if pk == 1:
+        context = {
+            'products': Product.objects.filter(Q(category__icontains='pullover'))
+        }
+        return render(request, 'category/category_list.html', context)
+
+    elif pk == 2:
+        context = {
+            'products': Product.objects.filter(Q(category__icontains='cardigan'))
+        }
+        return render(request, 'category/category_list.html', context)
+
+    elif pk == 3:
+        context = {
+            'products': Product.objects.filter(Q(category__icontains='vest'))
+        }
+        return render(request, 'category/category_list.html', context)
+    else:
+        return render(request, 'category/category_list.html')
 
 
-class CategoryDetailView(DetailView):
-    model = Category
+def gender_list(request, pk):
+    if pk == 1:
+        context = {
+            'products': Product.objects.filter(Q(gender__icontains='male'))
+        }
+        return render(request, 'category/category_list.html', context)
+
+    elif pk == 2:
+        context = {
+            'products': Product.objects.filter(Q(gender__icontains='female'))
+        }
+        return render(request, 'category/category_list.html', context)
+
+    elif pk == 3:
+        context = {
+            'products': Product.objects.filter(Q(gender__icontains='kids'))
+        }
+        return render(request, 'category/category_list.html', context)
+
+    else:
+        return render(request, 'category/category_list.html')
 
 
 # Search from navbar

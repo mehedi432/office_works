@@ -10,25 +10,26 @@
         <a class="nav-link" href="{% url 'admin:index' %}">Admin<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Category
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{% url 'product:category-details' 1 %}">Cardigan</a>
-          <a class="dropdown-item" href="{% url 'product:category-details' 2 %}">Pullover</a>
-          <a class="dropdown-item" href="{% url 'product:category-details' 3%}">Vest</a>
+          <a class="dropdown-item" href="{% url 'product:category-index' 1 %}">Pullover</a>
+          <a class="dropdown-item" href="{% url 'product:category-index' 2 %}">Cardigan</a>
+          <a class="dropdown-item" href="{% url 'product:category-index' 3 %}">Vest</a>
+
           <div class="bg-danger"><hr/></div>
           <a class="dropdown-item" href="#">More</a>
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTwo" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownTwo" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Gender
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownTwo">
-          <a class="dropdown-item" href="#">Man</a>
-          <a class="dropdown-item" href="#">Woman</a>
-          <a class="dropdown-item" href="#">Kids</a>
+          <a class="dropdown-item" href="{% url 'product:gender-index' 1 %}">Male</a>
+          <a class="dropdown-item" href="{% url 'product:gender-index' 2 %}">Female</a>
+          <a class="dropdown-item" href="{% url 'product:gender-index' 3 %}">Kids</a>
 
           <div class="bg-danger"><hr/></div>
           <a class="dropdown-item" href="#">More</a>

@@ -1,26 +1,26 @@
 {% extends 'base.html' %}
 
-
 {% block content %}
 {% include 'partials/_navbar.html' %}
 
     <div class="container">
     <div class="row justify-content-center">
-    {% for product in object_list %}
+    {% for product in products %}
         <div class="col-md-4 col-sm-4">
             <a href="{% url 'product:product-detail' product.id%}" style="text-decoration:none">
                 <div class="card shadow" style="" >
                     <img class="card-img-top" src={{product.image_primary.url}} alt="{{product.style_name}}" style="width:100%" width="21rem" height="233rem">
                     <div class="card-body">
                         <h4 class="card-title font-weight-bolder text-dark" style="font-size: 13pt; margin-top: -5pt;">{{product.style_name}}</h4>
-                        <p class="card-text text-dark" style="font-size: 13pt; margin-top: -5pt;">{{product.composition}}</p>
+                        <p class="card-text text-dark" style="font-size: 13pt; margin-top: -5pt; margin-bottom: -13pt">{{product.composition}}</p>
                     </div>
                 </div>
             </a>
         </div>
     {% empty %}
-        <div class="jumbotron text-center">
-            No product found
+        <div class="text-center jumbotron col-md-8 justify-content-center">
+            <div class="display-3">No Product found</div>
+            <hr class="bg-danger">
         </div>
     {% endfor %}
     </div>

@@ -2,9 +2,13 @@ from django.db import models
 from merchant.models import Merchant
 from buyer.models import Buyer
 
+CATEGORY_CHOICES = (('pullover', 'Pullover'), ('cardigan', 'Cardigan'), ('vest', 'Vest'))
+GENDER_CHOICES = (('male', 'Male'), ('female', 'Female'), ('kids', 'Kids'))
+
 
 # Create your models here.
 class Product(models.Model):
+
     style_name = models.CharField(max_length=34)
 
     merchant_name = models.ForeignKey(Merchant, on_delete=models.CASCADE)
@@ -12,8 +16,8 @@ class Product(models.Model):
     buyer_name_cleaned = models.CharField(max_length=55, help_text="Please, write the email of buyer")
     merchant_name_cleaned = models.CharField(max_length=55, help_text="Please, write the email of associate merchant")
 
-    gender = models.ForeignKey("Gender", on_delete=models.CASCADE)
-    category = models.ForeignKey("Category", on_delete=models.CASCADE)
+    gender = models.CharField(max_length=21, choices=GENDER_CHOICES)
+    category = models.CharField(max_length=21, choices=CATEGORY_CHOICES)
 
     image_primary = models.ImageField(default='default.jpg', upload_to="media/product")
     image_secondary = models.ImageField(default='default.jpg', upload_to="media/product", blank=True)
@@ -39,19 +43,3 @@ class Product(models.Model):
     def __str__(self):
         return self.style_name
 
-
-class Gender(models.Model):
-    title = models.CharField(max_length=21)
-
-    def __str__(self):
-        return self.title
-
-
-class Category(models.Model):
-    title = models.CharField(max_length=21)
-
-    class Meta:
-        verbose_name_plural = 'Categories'
-
-    def __str__(self):
-        return self.title
